@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello World Example</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" href="CodeHubLogo.ico" type="image/x-icon">
+  <link rel="icon" href="CodeHubLogo.png" type="image/png">
+  <!-- Favicon End -->
+  <style>
+    body {
+      background-color: #282c34;
+      color: #abb2bf;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1a1e23;
+      color: #61dafb;
+      padding: 20px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+    .site-info {
+      display: flex;
+      align-items: center;
+    }
+    .site-name {
+      font-size: 24px;
+      font-family: "Arial Black", sans-serif;
+    }
+    .phrase {
+      font-size: 16px;
+      margin-left: auto;
+      margin-right: 20px;
+    }
+    .container {
+      margin: 0 auto;
+      max-width: 800px;
+      padding: 20px;
+    }
+    pre {
+      background-color: #2c313a;
+      color: #abb2bf;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+    }
+    code {
+      color: #abb2bf;
+    }
+    .top-bar {
+      background-color: #1a1e23;
+      color: #61dafb;
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .search-container {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .search-container input[type=text] {
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #61dafb;
+      box-sizing: border-box;
+      font-family: "Courier New", monospace;
+      background-color: #2c313a;
+      color: #61dafb;
+      font-size: 16px;
+    }
+    .search-container input[type=submit] {
+      padding: 8px 20px;
+      border: none;
+      background-color: #61dafb;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+    }
+    .search-results a {
+      display: block;
+      color: #61dafb;
+      text-decoration: none;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="site-info">
+    <img src="CodeHub.png" alt="Logo" class="logo">
+    <h1 class="site-name">CodeHub</h1>
+  </div>
+  <div class="search-container">
+    <form id="searchForm" action="/search" method="get">
+      <input type="text" placeholder="Search..." name="search" id="searchInput">
+      <input type="submit" value="Search" id="searchButton">
+    </form>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+  <div class="phrase">
+    You want the code? Please help youself.
+  </div>
+</header>
+
+<div class="container">
+  <h1>Hello World Example</h1>
+
+  <pre class="language-cpp" tabindex="0"><code class="language-cpp">
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    cout &lt;&lt; "Hello, World!" &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+
+<script>
+  document.getElementById('searchInput').addEventListener('input', function(event) {
+    var searchResults = document.getElementById('searchResults');
+    var searchValue = event.target.value.trim();
+    var menu = document.querySelector('.menu');
+
+    // Simulated search results (replace with actual search functionality)
+    var pages = ['Page 1', 'Page 2', 'Page 3', 'Page 4', 'Page 5'];
+
+    // Clear previous results
+    searchResults.innerHTML = '';
+
+    if (searchValue !== '') {
+      menu.style.display = 'block';
+      for (var i = 0; i < pages.length; i++) {
+        if (pages[i].toLowerCase().includes(searchValue.toLowerCase())) {
+          var link = document.createElement('a');
+          link.href = '#'; // Replace '#' with actual link
+          link.textContent = pages[i];
+          searchResults.appendChild(link);
+        }
+      }
+    } else {
+      menu.style.display = 'none';
+    }
+  });
+</script>
+
+</div>
+
+</body>
+</html>
